@@ -25,12 +25,12 @@ if(!empty($_POST)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 	
-	<title>Welcome back prompter!</title>
+	<title>LogIn</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
      <form action="login.php" method="post">
-     	<h2>Login</h2>
+     	<h2>Welcome back prompter!</h2>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
