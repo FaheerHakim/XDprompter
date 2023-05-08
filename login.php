@@ -28,7 +28,7 @@ if(!empty($_POST)) {
 	<title>Login</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="login-body">
      <form action="login.php" method="post">
      	<h2>Welcome back prompter!</h2>
      	<?php if (isset($_GET['error'])) { ?>

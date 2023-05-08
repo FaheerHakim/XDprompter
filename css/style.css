@@ -6,6 +6,14 @@ body {
 	height: 100vh;
 	flex-direction: column;
 }
+#login-body{
+	background: #41f850;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	flex-direction: column;
+}
 
 *{
 	font-family: sans-serif;
