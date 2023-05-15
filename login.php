@@ -5,7 +5,7 @@ if(!empty($_POST)) {
     $username = $_POST['username'];
     $password = $_POST['password'];
         
-        if($user->can_login($username, $password)) {
+        /*if($user->can_login($username, $password)) {
             session_start();
             $_SESSION["username"] = $username;
             $_SESSION["userID"] = $user->getUserID();
@@ -13,7 +13,7 @@ if(!empty($_POST)) {
             header("location:gallery.php");
         } else {
            $error = "Invalid username or password!";
-        }
+        }*/
 
     //$user = new User();    
 }
@@ -30,7 +30,7 @@ if(!empty($_POST)) {
 </head>
 <body id="login-body">
      <form action="login.php" method="post">
-     	<h2>Welcome back prompter!</h2>
+     	<h2>Welcome Back, Prompter!</h2>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
