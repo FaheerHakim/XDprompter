@@ -1,4 +1,22 @@
-<!DOCTYPE html>
+<?php 
+include_once(__DIR__ . "/classes/User.php");
+
+try {
+	if (!empty($_POST)) {
+		$user = new User();
+		$user->setUsername($_POST['username']);
+		$user->setEmail($_POST['email']);
+		$user->setPassword($_POST['password']);
+		//$user->setConfirmPassword($_POST['confirm_password']);
+		//$user->register();
+	}
+} catch (\Throwable $th) {
+	$error = $th->getMessage();
+}
+
+
+
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,6 +27,7 @@
 </head>
 
 <body>
+
 	<header>
 		<h1 class="heading">Hello, XD Prompter!</h1>
 		<h3 class="title">Enter your details and start your journey with usss.</h3>
@@ -28,6 +47,9 @@
 		<!-- Form section that contains the
 			login and the signup form -->
 		<div class="form-section">
+		<?php if (isset($error)) : ?>
+		<div class="error"><?php echo $error; ?></div>
+	    <?php endif; ?>
 
 			<!-- login form -->
 			<div class="login-form">

@@ -1,5 +1,6 @@
 <?php
-include_once("bootstrap.php");
+include_once(__DIR__ . "/classes/User.php");
+
 // controleren of er een post is gedaan en of de velden niet leeg zijn 
 if (!empty($_POST)) {
     try {
