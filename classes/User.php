@@ -1,21 +1,13 @@
 <?php
 class User {
-    private $email;
     private $username;
+    private $email;
     private $password;
 
     // setters and getters
-    public function setEmail($email) {
-        if (empty($email)) {
-            throw new Exception("Email cannot be empty");
-        }
-        $this->email = $email;
-        return $this;
-    }
-    public function getEmail() {
-        return $this->email;
-    }
 
+
+   
     public function setUsername($username) {
         if (empty($username)) {
             throw new Exception("Username cannot be empty");
@@ -25,6 +17,18 @@ class User {
     }
     public function getUsername() {
         return $this->username;
+    }
+
+
+    public function setEmail($email) {
+        if (empty($email)) {
+            throw new Exception("Email cannot be empty");
+        }
+        $this->email = $email;
+        return $this;
+    }
+    public function getEmail() {
+        return $this->email;
     }
 
     public function setPassword($password) {
@@ -38,5 +42,24 @@ class User {
         return $this->password;
     }
 
-    
+    // save
+    public function save() {
+        // connectie
+        $conn = Db::getConnection();
+
+        // query (insert)
+        $statement = $conn->prepare("insert into users (username, email, password) values (:username, :email, :password)");
+        $username = $this->getUsername();
+        $email = $this->getEmail();
+        $password = $this->getPassword();
+        $statement->bindValue(":username", $username);
+        $statement->bindValue(":email", $email);
+        $statement->bindValue(":password", $password);
+        
+        // zonder execute wordt de query niet uitgevoerd
+        $result = $statement->execute();
+        return $result;
+    }
+
+
 }

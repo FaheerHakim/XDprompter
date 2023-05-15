@@ -10,7 +10,7 @@ abstract class Db
             return self::$conn;
         } else {
             // no connection found 
-            self::$conn = new PDO("mysql:host=localhost;dbname=XDprompter", "root", "root");
+            self::$conn = new PDO("mysql:host=localhost;dbname=XDprompter", "root", "123456");
             return self::$conn;
         }
     }

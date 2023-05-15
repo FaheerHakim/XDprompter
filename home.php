@@ -1,5 +1,5 @@
 <?php 
-include_once(__DIR__ . "/classes/User.php");
+include_once("bootstrap.php");
 
 try {
 	if (!empty($_POST)) {
@@ -9,10 +9,17 @@ try {
 		$user->setPassword($_POST['password']);
 		//$user->setConfirmPassword($_POST['confirm_password']);
 		//$user->register();
+		//echo $user->getUsername();
+		
+		$user->save();
+		$success = "User saved";
+		
 	}
 } catch (\Throwable $th) {
 	$error = $th->getMessage();
+	
 }
+
 
 
 
@@ -33,7 +40,7 @@ try {
 		<h3 class="title">Enter your details and start your journey with usss.</h3>
 	</header>
 
-	
+
 	<div class="container">
 
 		<!-- upper button section to select
@@ -46,28 +53,40 @@ try {
 
 		<!-- Form section that contains the
 			login and the signup form -->
-		<div class="form-section">
-		<?php if (isset($error)) : ?>
-		<div class="error"><?php echo $error; ?></div>
-	    <?php endif; ?>
+			
+			<form action="" method="post">
+			<div id="alert">
+		    <?php if (isset($error)) : ?>
+		    <div class="error"><?php echo $error; ?></div>
+	        <?php endif; ?>
 
+		    <?php if (isset($success)) : ?>
+		    <div class="success"><?php echo $success; ?></div>
+	        <?php endif; ?>
+		    </div>
+			
+		    <div class="form-section">
+		
 			<!-- login form -->
 			<div class="login-form">
-			    <input type="text" class="username in" placeholder="Enter your username">
-				<input type="password" class="pass in" placeholder="password">
-				<button class="clkbtn">Login</button>
+			    <input type="text" name="username" class="username in" placeholder="Enter your username">
+				<input type="password" name="password" class="password in" placeholder="password">
+				<button type="submit" class="clkbtn">Login</button>
 			</div>
 
 			<!-- signup form -->
 			<div class="signup-form">
-				<input type="text" class="username in" placeholder="Enter your username">
-				<input type="email" class="email in" placeholder="youremail@email.com">
-				<input type="password" class="pass in" placeholder="password">
-				<input type="password" class="pass in" placeholder="Confirm password">
-				<button class="clkbtn">Signup</button>
+				<input type="text" name="username" class="username in" placeholder="Enter your username">
+				<input type="text" name="email" class="email in" placeholder="youremail@email.com">
+				<input type="password" name="password" class="password in" placeholder="password">
+				<!--<input type="password" name="password" class="password in" placeholder="Confirm password">-->
+				<button type="submit" class="clkbtn">Signup</button>
 			</div>
+			
 		</div>
+		</form>
 	</div>
+	
 	<script src="index.js"></script>
 </body>
 

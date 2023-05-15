@@ -85,6 +85,14 @@ header {
 .moveslider {
 	left: 250px;
 }
+#alert {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
 
 .form-section {
 	height: 500px;
@@ -143,6 +151,10 @@ header {
 	cursor: pointer;
     color: white;
 }
+.clkbtn:hover{
+	opacity: .7;
+}
+
 
 /* For Responsiveness of the page */
 
@@ -266,4 +278,5 @@ header {
 		width: 130px;
 		font-size: 19px;
 	}
+	
 }
