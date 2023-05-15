@@ -19,7 +19,9 @@ try {
 	$error = $th->getMessage();
 	
 }
-
+// op classe User wil een statische functie getAll() aanroepen
+$users = User::getAll();
+//var_dump($users);
 
 
 
@@ -86,7 +88,10 @@ try {
 		</div>
 		</form>
 	</div>
-	
+	<!--<?php foreach($users as $user): ?>
+     <h2><?php echo $user['email']; ?></h2>
+	<?php endforeach; ?>-->
+
 	<script src="index.js"></script>
 </body>
 

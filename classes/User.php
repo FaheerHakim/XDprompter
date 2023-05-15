@@ -62,4 +62,16 @@ class User {
     }
 
 
+    // static function
+    public static function getAll() {
+        // connectie
+        $conn = Db::getConnection();
+
+        // query (select)
+        $statement = $conn->prepare("select * from users");
+        $statement->execute();
+        // als het statement gerund heeft, dan gaan we hier alle rijen uithalen in de vorm van een associatieve array
+        $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    }
 }
